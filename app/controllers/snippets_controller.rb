@@ -12,12 +12,12 @@ class SnippetsController < ApplicationController
     )
   end
 
-  def index
-    @snippets = Snippet.latest
-  end
-
   def show
     @snippet = Snippet.find(params[:id])
+  end
+
+  def index
+    @snippets = Snippet.latest
   end
 
   private

@@ -1,0 +1,13 @@
+<%= form_with url: sessions_path  do |form| %>
+    <% if @error %>
+      <% render 'partials/error', error: @error %>
+    <% end %>
+
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+
+   <%= form.submit 'Login' %>
+<% end %>
