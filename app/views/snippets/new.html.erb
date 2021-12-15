@@ -1,0 +1,29 @@
+<% content_for :title, "Create a New Snippet" %>
+
+<%= form_with url: snippets_path do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.label "Delete in:" %>
+
+    <%= form.radio_button :expires, "365", checked: true %>
+    <%= form.label "One Year" %>
+
+    <%= form.radio_button :expires, "7" %>
+    <%= form.label "One Week" %>
+
+    <%= form.radio_button :expires, "1" %>
+    <%= form.label "One day" %>
+  </div>
+  <div>
+    <%= form.submit "Publish Snippet"  %>
+  </div>
+<% end %>

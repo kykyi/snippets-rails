@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'snippets#index'
 
   resources :snippets, only: %i[new create index show]
-  resources :users, only: %i[new create]
-  resources :sessions, only: %i[new create destroy]
+  resources :users, only: %i[new create] do
+    delete :logout, to: 'users#logout'
+  end
+  resources :sessions, only: %i[new create]
 end

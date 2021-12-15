@@ -7,9 +7,11 @@ class SnippetsController < ApplicationController
     Snippet.create!(
       title: params[:title],
       content: params[:title],
-      expires: params[:expires],
+      expires: Time.zone.now + params[:expires].to_i.days,
       created: Time.zone.now
     )
+
+    redirect_to root_path, notice: "Snippet successfully created!"
   end
 
   def show

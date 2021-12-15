@@ -1,16 +1,18 @@
+<% content_for :title, "Home" %>
+
 <h2>Latest Snippets</h2>
   <% if @snippets.any? %>
     <table>
       <tr>
-          <th>Title</th>
-          <th>Created</th>
-          <th>ID</th>
+        <th>Title</th>
+        <th>Created</th>
+        <th>ID</th>
       </tr>
       <% @snippets.each do |snippet| %>
         <tr>
-            <td><%= link_to snippet.title, show_snippet_path(snippet) %></td>
-            <td><%= snippet.created %></td>
-            <td>#<%= snippet.id %></td>
+          <td><%= link_to snippet.title, snippet_path(snippet) %></td>
+          <td><%= snippet.created.strftime("%d %b %Y at %I:%M") %></td>
+          <td>#<%= snippet.id %></td>
         </tr>
       <% end %>
     </table>

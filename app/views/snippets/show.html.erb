@@ -1,0 +1,11 @@
+<div class='snippet'>
+  <div class='metadata'>
+    <strong><%= @snippet.title %></strong>
+    <span>#<%= @snippet.id %></span>
+  </div>
+  <pre><code><%= @snippet.content %></code></pre>
+  <div class='metadata'>
+    <time>Created: <%= @snippet.created.strftime("%d %b %Y at %I:%M") %></time>
+    <time>Expires: <%= @snippet.expires.strftime("%d %b %Y at %I:%M") %></time>
+  </div>
+</div>

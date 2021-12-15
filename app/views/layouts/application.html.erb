@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SnippetsRails</title>
+    <title><%= yield(:title) %> - Snippetbox</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,30 +11,31 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-   <body>
-        <header>
-            <h1><%= image_tag("logo.png") %><%= link_to "Snippetbox", root_path %></h1>
-        </header>
-        <nav>
-            <div>
-                <a href='/'>Home</a>
-                <% if @current_user %>
-                    <%= link_to "Create snippet", new_snippet_path %>
-                <% end %>
-            </div>
-            <div>
-                <% if @current_user %>
-                  <%= link_to "Log Out", sessions_path, method: :delete %>
-                <% else %>
-                    <%= link_to "Signup", new_user_path %>
-                    <%= link_to "Login", new_session_path %>
-                <% end %>
-            </div>
-        </nav>
-        <main>
-            <%= render 'partials/flash_messages', flash: flash %>
-            <%= render 'partials/main' %>
-        </main>
-        <%= render 'partials/footer' %>
-    </body>
+  <body>
+    <header>
+        <h1><%= image_tag("logo.png") %><%= link_to "Snippetbox", root_path %></h1>
+    </header>
+    <nav>
+      <div>
+        <%= link_to "Home", root_path %>
+        <% if @current_user %>
+          <%= link_to "Create snippet", new_snippet_path %>
+        <% end %>
+      </div>
+        <div>
+          <% if @current_user %>
+            <%= link_to "Logout", user_logout_path(@current_user), method: :delete %>
+          <% else %>
+            <%= link_to "Signup", new_user_path %>
+            <%= link_to "Login", new_session_path %>
+          <% end %>
+        </div>
+    </nav>
+    <main>
+      <%= render 'partials/flash_messages', flash: flash %>
+      <%= render 'partials/main' %>
+    </main>
+    <%= render 'partials/footer' %>
+    <%= javascript_pack_tag 'main', 'data-turbolinks-track': 'reload' %>
+  </body>
 </html>
