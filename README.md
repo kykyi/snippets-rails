@@ -1,3 +1,3 @@
 # README
 
-Alex Edward's Let's Go written in Rails for comparison in styles
+Alex Edward's [Let's Go](https://lets-go.alexedwards.net/) written in Rails for comparison in styles
